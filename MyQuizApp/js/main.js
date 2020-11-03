@@ -19,6 +19,14 @@
         }
         return arr;
     }
+
+    function checkAnswer(li){
+        if (li.textContent === quizSet[currentNum].c[0]) {
+            console.log('correct');
+        } else {
+            console.log('wrong');
+        }
+    }
     
 
     function setQuiz(){
@@ -29,10 +37,13 @@
         shuffledChoices.forEach(choice => {
             const li = document.createElement('li');
             li.textContent = choice;
+            li.addEventListener('click', () => {
+                checkAnswer(li);
+            })
             choices.appendChild(li);
         });
     }
 
-    setQuiz();
+    setQuiz(); 
 
 }
