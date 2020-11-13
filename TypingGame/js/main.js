@@ -34,7 +34,7 @@
         }
 
         loc++;
-        target.textContent = '_'.repeat(loc) + word.substr(loc);
+        target.textContent = '_'.repeat(loc) + word.substring(loc);
 
         if (loc === word.length) {
             if (words.length === 0) {
