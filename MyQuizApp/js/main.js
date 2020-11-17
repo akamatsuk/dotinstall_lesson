@@ -5,28 +5,28 @@
     const choices = document.getElementById('choices');
     const btn = document.getElementById('btn');
     const result = document.getElementById('result');
-    const scoreLabel = document.querySelector('#result > p') 
+    const scoreLabel = document.querySelector('#result > p')
 
     const quizSet = shuffle([
-        {q: 'What is A?', c:['A0', 'A1', 'A2']},
-        {q: 'What is B?', c:['B0', 'B1', 'B2']},
-        {q: 'What is C?', c:['C0', 'C1', 'C2']},
+        { q: 'What is A?', c: ['A0', 'A1', 'A2'] },
+        { q: 'What is B?', c: ['B0', 'B1', 'B2'] },
+        { q: 'What is C?', c: ['C0', 'C1', 'C2'] },
     ]);
     let currentNum = 0;
     let isAnswerd;
     let score = 0;
-    
+
     function shuffle(arr) {
-        for (let i = arr.length -1; i > 0; i--) {
+        for (let i = arr.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [arr[j], arr[i]] = [arr[i], arr[j]]
         }
         return arr;
     }
 
-    function checkAnswer(li){
+    function checkAnswer(li) {
         // if (isAnswerd === true){
-        if (isAnswerd){
+        if (isAnswerd) {
             return;
         }
         isAnswerd = true;
@@ -40,13 +40,13 @@
 
         btn.classList.remove('disabled');
     }
-    
+
 
     function setQuiz() {
         isAnswerd = false;
         question.textContent = quizSet[currentNum].q;
 
-        while(choices.firstChild) {
+        while (choices.firstChild) {
             choices.removeChild(choices.firstChild)
         }
 
@@ -61,14 +61,14 @@
             choices.appendChild(li);
         });
 
-        if (currentNum === quizSet.length -1) {
+        if (currentNum === quizSet.length - 1) {
             btn.textContent = 'Show Score';
         }
     }
 
-    setQuiz(); 
+    setQuiz();
 
-    btn.addEventListener('click',() => {
+    btn.addEventListener('click', () => {
         if (btn.classList.contains('disabled')) {
             return;
         }
